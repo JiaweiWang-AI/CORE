@@ -1,0 +1,43 @@
+{
+  "dataset": "hotpotqa",
+  "api_model": "gpt-3.5-turbo",
+  "threshold": "A",
+  "style": "standard",
+  "context_mode": "none",
+  "react_examples": 1,
+  "react_max_steps": 8,
+  "generation": {
+    "temperature": 0.5,
+    "max_tokens": 256,
+    "top_p": 1.0,
+    "frequency_penalty": 0.0,
+    "presence_penalty": 0.0
+  },
+  "evaluation_generation": {
+    "temperature": 0.0,
+    "max_tokens": 512,
+    "top_p": 1.0,
+    "frequency_penalty": 0.0,
+    "presence_penalty": 0.0
+  },
+  "react_generation": {
+    "temperature": 0.0,
+    "max_tokens": 512,
+    "top_p": 1.0,
+    "frequency_penalty": 0.0,
+    "presence_penalty": 0.0,
+    "stop": [
+      "\nObservation:"
+    ]
+  },
+  "judge": {
+    "api_model": "gpt-3.5-turbo",
+    "generation": {
+      "temperature": 0.0,
+      "max_tokens": 32,
+      "top_p": 1.0
+    }
+  },
+  "protocol": "CORE method with ReWOO baseline interfaces; explicit new-run defaults, not recovered historical HotpotQA configuration",
+  "steps_definition": "selected answer trajectory; answer_steps_total and all API calls reported separately"
+}

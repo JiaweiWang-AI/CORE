@@ -1,0 +1,123 @@
+{
+  "prepared_on": "2026-09-28",
+  "implementation": "Archived ScienceQA/CORE prompts plus organized shared CORE orchestration. ScienceQA selection checked against author records. HotpotQA adapts pinned ReWOO/ReAct baselines and evaluation; original HotpotQA executable was not recovered.",
+  "sources": [
+    {
+      "file": "core/faithful_reasoning_prompt.py",
+      "original_filename": "faithful_reasoning_prompt.py",
+      "original_sha256": "d48820eafe78e25f95755c623bc7126dfcf06f7ea26ef738fafc73ca7fb1bad3",
+      "change": "None; byte-identical."
+    },
+    {
+      "file": "core/base_prompt.py",
+      "original_filename": "base_prompt.py",
+      "original_sha256": "7c34b0a6cb7604f0a07a463aa4579ba6c73fd69d824c340abccaa944f301371d",
+      "change": "Relative import only."
+    }
+  ],
+  "upstream_code": {
+    "repository": "https://github.com/lupantech/ScienceQA",
+    "commit": "c67e1aa5137d679b366d86b6ed9c673f0502b8ff",
+    "scope": "Prompt field conventions, valid-option random fallback and benchmark evaluation definitions.",
+    "dataset_commit": "2cbf8318e07b9ece895bb2ae605e71e38d623264"
+  },
+  "published_paper": {
+    "doi": "10.1145/3664647.3681263",
+    "pdf_sha256": "d9f85cf0bec24607f8b65c23fabb85ab5f9fe270b534c6e4237bf4dc76bb9048"
+  },
+  "prompt_validation": {
+    "comparison": "Archived prompt builders vs packaged builders with held-out target fields removed",
+    "prompts_compared": 50892,
+    "identical": 50892,
+    "caption_fixture": "Public MM-CoT file, verified byte-identical to author-retained captions; historical per-run input hashes unavailable.",
+    "original_prompt_hashes": {
+      "base_prompt.py": "7c34b0a6cb7604f0a07a463aa4579ba6c73fd69d824c340abccaa944f301371d",
+      "faithful_reasoning_prompt.py": "d48820eafe78e25f95755c623bc7126dfcf06f7ea26ef738fafc73ca7fb1bad3"
+    }
+  },
+  "edition": "CORE",
+  "bundled_experimental_data": false,
+  "private_validation": {
+    "scope": "Checked against local author-held records; records are not in this edition",
+    "response_values_in_private_reference": 50892,
+    "matched_predictions": 25446,
+    "matched_Table1_metrics": 54
+  },
+  "release_scope": {
+    "included": [
+      "ScienceQA prompts, inference and Table 1 scoring",
+      "Shared CORE Algorithm 1",
+      "HotpotQA Standard, zero-shot CoT and ReAct adapters",
+      "HotpotQA EM/F1/model-judged Acc and explicit new-run resource accounting",
+      "Public input downloaders and pinned captions URL/hash"
+    ],
+    "not_included": [
+      "datasets, captions, model weights, predictions or API logs",
+      "original historical HotpotQA runner or a claim of exact Table 2 numerical reproduction",
+      "caption generation or plot generation"
+    ]
+  },
+  "caption_input": {
+    "repository": "https://github.com/amazon-science/mm-cot",
+    "commit": "8dd4ac02b94f21347973491f6e6b828502d23f9d",
+    "file": "data/instruct_captions.json",
+    "sha256": "6de97c2a8d8fa015ddde3fd23f357f1adeec4ce1909a8a4a0794eecab73791e3",
+    "verification": "Downloaded public file is byte-identical to author-retained file; no per-historical-run hash available."
+  },
+  "hotpot_upstreams": [
+    {
+      "repository": "https://github.com/billxbf/ReWOO",
+      "commit": "9cd0283043ff4be0c9d614fda2789d143ca6ffd1",
+      "scope": "IO/CoT instructions and parsers, ReAct instruction/examples/docstore behavior, QAEval grading convention, baseline Steps"
+    },
+    {
+      "repository": "https://github.com/ysymyth/ReAct",
+      "commit": "6bdb3a1fd38b8188fc7ba4102969fe483df8fdc9",
+      "scope": "ReAct protocol and examples inherited through ReWOO"
+    },
+    {
+      "repository": "https://github.com/langchain-ai/langchain",
+      "tag": "v0.0.187",
+      "scope": "QAEval prompt, ReAct output parser and scratchpad/docstore conventions"
+    },
+    {
+      "repository": "https://github.com/hotpotqa/hotpot",
+      "scope": "Answer normalization, exact match and F1; bundled Apache license"
+    }
+  ],
+  "hotpot_source_files": {
+    "ReWOO/algos/notool.py": "8876c6d763ffd0e34141e8568560b9426ce02244abd75ab772356037bcfdee35",
+    "ReWOO/algos/react.py": "71bcaef122c13369a912efa034d229bd642cb52e6490d08deee6d93c752c26cd",
+    "ReWOO/prompts/fewshots.py": "fe925f6367e9cc75365efe10b074e988ac3ed7f01c0d97eaf6962926820b5d7f",
+    "ReWOO/prompts/wiki_prompt.py": "af51c7fa21f200cecfd8dced4f40abb2a70d6646f0cf6370ec80c7426d3d61fd",
+    "ReWOO/utils/Evaluator.py": "9194fa90f17dec47af827ca42cb1ef423166b30f9f330f4c6a1cc77356d73de3",
+    "ReWOO/utils/CustomDocstoreExplorer.py": "09371126e87ea047c860277b8535365747927ae699523fd32089483c14ccb61f",
+    "LangChain_0_0_187/langchain/evaluation/qa/eval_prompt.py": "64c0e309025ec1866dc765fca3af5724edf72cd2772fc7c1945bee8a01b1ae65",
+    "LangChain_0_0_187/langchain/agents/react/output_parser.py": "516f9584545b51c963a9fe46888cc42d28e85b27599a779fd45b86a0a0008138",
+    "LangChain_0_0_187/langchain/agents/react/base.py": "418b19c7758556c51b748733d412c9243c7a46850ac6d527480ed97975957308"
+  },
+  "hotpot_settings_status": {
+    "inherited": "CORE loop, baseline instruction text and parsers, QAEval template, upstream step conventions",
+    "explicit_new_run": "ReAct example count 1, generation/judge configuration, current MediaWiki transport, sample IDs and FR resource aggregation",
+    "historical_not_recovered": "Exact original runner, task prompt configuration, judge model and original sampling procedure"
+  },
+  "readme_figure": {
+    "file": "assets/core_framework.png",
+    "figure": "Figure 3",
+    "pdf_page": 4,
+    "source_doi": "10.1145/3664647.3681263",
+    "source_pdf_sha256": "d9f85cf0bec24607f8b65c23fabb85ab5f9fe270b534c6e4237bf4dc76bb9048",
+    "sha256": "3a5abe06843a5fbeb7f31a206438e9ede15ccf6e8f933c0a544fc4c75164f16f",
+    "rendering": {
+      "tool": "pdftoppm",
+      "dpi": 288,
+      "crop_pixels": {
+        "x": 216,
+        "y": 320,
+        "width": 2016,
+        "height": 596
+      }
+    },
+    "scope": "Framework diagram rendered from the published PDF; no content redrawn or edited."
+  }
+}
